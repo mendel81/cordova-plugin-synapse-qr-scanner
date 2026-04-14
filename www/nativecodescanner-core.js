@@ -257,7 +257,7 @@ function makeExecPromise(exec, action, args, normalizer) {
 }
 
 function createApi(exec) {
-  const api = {
+  return {
     SUPPORTED_FORMATS: SUPPORTED_FORMATS.slice(),
 
     isSupported: function isSupported(success, error) {
@@ -316,8 +316,6 @@ function createApi(exec) {
       );
     }
   };
-
-  return api;
 }
 
 module.exports = createApi;

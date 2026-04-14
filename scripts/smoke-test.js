@@ -16,7 +16,7 @@ const OPENJDK21_HOME = '/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Content
 function parseArgs(argv) {
   const platforms = [];
   let withFirebasex = false;
-  let cordovaCliPackage = null;
+  let cordovaCliPackage = CORDOVA_CLI_PACKAGE;
 
   for (let index = 0; index < argv.length; index += 1) {
     const token = argv[index];
@@ -116,7 +116,7 @@ function main() {
     appDir: appDir,
     withFirebasex: args.withFirebasex,
     platforms: args.platforms,
-    cordovaCliPackage: cordovaCliPackage || 'global'
+    cordovaCliPackage: cordovaCliPackage
   });
 }
 

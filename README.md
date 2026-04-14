@@ -192,37 +192,37 @@ iOS normalization notes:
 
 Successful scan:
 
-```js
+```json
 {
-  cancelled: false,
-  text: '0123456789012',
-  format: 'EAN_13',
-  nativeFormat: 'EAN_13',
-  engine: 'google',
-  platform: 'android',
-  rawBytesBase64: null,
-  valueType: 'PRODUCT',
-  bounds: { left: 0, top: 0, width: 100, height: 50 },
-  cornerPoints: [{ x: 0, y: 0 }],
-  timestamp: 1713072000000
+  "cancelled": false,
+  "text": "0123456789012",
+  "format": "EAN_13",
+  "nativeFormat": "EAN_13",
+  "engine": "google",
+  "platform": "android",
+  "rawBytesBase64": null,
+  "valueType": "PRODUCT",
+  "bounds": { "left": 0, "top": 0, "width": 100, "height": 50 },
+  "cornerPoints": [{ "x": 0, "y": 0 }],
+  "timestamp": 1713072000000
 }
 ```
 
 User cancellation resolves normally:
 
-```js
+```json
 {
-  cancelled: true,
-  text: null,
-  format: null,
-  nativeFormat: null,
-  engine: 'mlkit',
-  platform: 'android',
-  rawBytesBase64: null,
-  valueType: 'UNKNOWN',
-  bounds: null,
-  cornerPoints: [],
-  timestamp: 1713072000000
+  "cancelled": true,
+  "text": null,
+  "format": null,
+  "nativeFormat": null,
+  "engine": "mlkit",
+  "platform": "android",
+  "rawBytesBase64": null,
+  "valueType": "UNKNOWN",
+  "bounds": null,
+  "cornerPoints": [],
+  "timestamp": 1713072000000
 }
 ```
 
@@ -550,37 +550,37 @@ Notas de normalización en iOS:
 
 Escaneo correcto:
 
-```js
+```json
 {
-  cancelled: false,
-  text: '0123456789012',
-  format: 'EAN_13',
-  nativeFormat: 'EAN_13',
-  engine: 'google',
-  platform: 'android',
-  rawBytesBase64: null,
-  valueType: 'PRODUCT',
-  bounds: { left: 0, top: 0, width: 100, height: 50 },
-  cornerPoints: [{ x: 0, y: 0 }],
-  timestamp: 1713072000000
+  "cancelled": false,
+  "text": "0123456789012",
+  "format": "EAN_13",
+  "nativeFormat": "EAN_13",
+  "engine": "google",
+  "platform": "android",
+  "rawBytesBase64": null,
+  "valueType": "PRODUCT",
+  "bounds": { "left": 0, "top": 0, "width": 100, "height": 50 },
+  "cornerPoints": [{ "x": 0, "y": 0 }],
+  "timestamp": 1713072000000
 }
 ```
 
 La cancelación del usuario resuelve de forma normal:
 
-```js
+```json
 {
-  cancelled: true,
-  text: null,
-  format: null,
-  nativeFormat: null,
-  engine: 'mlkit',
-  platform: 'android',
-  rawBytesBase64: null,
-  valueType: 'UNKNOWN',
-  bounds: null,
-  cornerPoints: [],
-  timestamp: 1713072000000
+  "cancelled": true,
+  "text": null,
+  "format": null,
+  "nativeFormat": null,
+  "engine": "mlkit",
+  "platform": "android",
+  "rawBytesBase64": null,
+  "valueType": "UNKNOWN",
+  "bounds": null,
+  "cornerPoints": [],
+  "timestamp": 1713072000000
 }
 ```
 
