@@ -5,6 +5,13 @@
   "license": "Apache-2.0",
   "author": "Synapse (https://synapse.es)",
   "homepage": "https://synapse.es",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mendel81/cordova-plugin-synapse-qr-scanner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mendel81/cordova-plugin-synapse-qr-scanner/issues"
+  },
   "main": "www/nativecodescanner.js",
   "types": "types/index.d.ts",
   "files": [

@@ -6,6 +6,9 @@ Plugin Cordova para escaneo de códigos QR y de barras en Android e iOS.
 Built and maintained by [Synapse](https://synapse.es).
 Desarrollado y mantenido por [Synapse](https://synapse.es).
 
+GitHub repository: [mendel81/cordova-plugin-synapse-qr-scanner](https://github.com/mendel81/cordova-plugin-synapse-qr-scanner)
+Repositorio GitHub: [mendel81/cordova-plugin-synapse-qr-scanner](https://github.com/mendel81/cordova-plugin-synapse-qr-scanner)
+
 ## English
 
 ### Overview
@@ -353,6 +356,54 @@ Then:
 7. Run `npm run perf:bench`
 8. Run `npm run pack:check`
 9. Review [`THIRD_PARTY_LICENSES.md`](./THIRD_PARTY_LICENSES.md) if dependency versions changed
+
+### Publish to npm
+
+The package name is currently available as an unscoped public package. Before the first publish:
+
+1. Sign in to npm:
+
+```bash
+npm login
+npm whoami
+```
+
+2. Run the release checks:
+
+```bash
+npm test
+npm run smoke:all:latest-cli
+npm run smoke:firebasex:latest-cli
+npm run perf:bench
+npm run pack:check
+```
+
+3. Publish version `1.0.0`:
+
+```bash
+npm publish
+```
+
+4. Verify the package:
+
+```bash
+npm view cordova-plugin-synapse-qr-scanner version
+```
+
+Expected install command:
+
+```bash
+cordova plugin add cordova-plugin-synapse-qr-scanner
+```
+
+For later releases:
+
+```bash
+npm version patch
+npm publish
+```
+
+npm currently requires either 2FA enabled on the account or a granular access token with bypass 2FA enabled for publishing.
 
 ### Notes
 
@@ -711,6 +762,54 @@ Después:
 7. Ejecuta `npm run perf:bench`
 8. Ejecuta `npm run pack:check`
 9. Revisa [`THIRD_PARTY_LICENSES.md`](./THIRD_PARTY_LICENSES.md) si cambian las versiones de dependencias
+
+### Publicación en npm
+
+El nombre del paquete sigue libre como paquete público sin scope. Antes de la primera publicación:
+
+1. Inicia sesión en npm:
+
+```bash
+npm login
+npm whoami
+```
+
+2. Ejecuta las comprobaciones de release:
+
+```bash
+npm test
+npm run smoke:all:latest-cli
+npm run smoke:firebasex:latest-cli
+npm run perf:bench
+npm run pack:check
+```
+
+3. Publica la versión `1.0.0`:
+
+```bash
+npm publish
+```
+
+4. Verifica el paquete:
+
+```bash
+npm view cordova-plugin-synapse-qr-scanner version
+```
+
+Comando esperado de instalación:
+
+```bash
+cordova plugin add cordova-plugin-synapse-qr-scanner
+```
+
+Para siguientes releases:
+
+```bash
+npm version patch
+npm publish
+```
+
+Actualmente npm exige o bien 2FA activado en la cuenta o bien un token granular con permiso para publicar y bypass de 2FA habilitado.
 
 ### Notas
 
