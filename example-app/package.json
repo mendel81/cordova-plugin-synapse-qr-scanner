@@ -1,0 +1,12 @@
+{
+  "name": "native-code-scanner-example-app",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Cordova example app for cordova-plugin-synapse-qr-scanner",
+  "scripts": {
+    "create": "cordova create . com.acme.nativecodescanner.example NativeScannerExample",
+    "prepare": "cordova prepare",
+    "build:android": "cordova build android",
+    "build:ios": "cordova build ios --simulator"
+  }
+}

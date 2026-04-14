@@ -1,0 +1,57 @@
+{
+  "name": "cordova-plugin-synapse-qr-scanner",
+  "version": "1.0.0",
+  "description": "Production-ready Cordova QR and barcode scanner with Android Google Code Scanner / CameraX + ML Kit fallback and iOS AVFoundation.",
+  "license": "Apache-2.0",
+  "author": "Synapse (https://synapse.es)",
+  "homepage": "https://synapse.es",
+  "main": "www/nativecodescanner.js",
+  "types": "types/index.d.ts",
+  "files": [
+    "plugin.xml",
+    "package.json",
+    "README.md",
+    "LICENSE",
+    "NOTICE",
+    "www",
+    "src",
+    "types",
+    "example-app",
+    "scripts",
+    "test",
+    "THIRD_PARTY_LICENSES.md"
+  ],
+  "keywords": [
+    "cordova",
+    "cordova-android",
+    "cordova-ios",
+    "plugin",
+    "barcode",
+    "qr",
+    "scanner",
+    "mlkit",
+    "camerax",
+    "avfoundation"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "cordova": {
+    "id": "cordova-plugin-synapse-qr-scanner",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "scripts": {
+    "test": "node --test ./test/*.test.js",
+    "pack:check": "npm pack --dry-run",
+    "perf:bench": "node ./scripts/perf-benchmark.js",
+    "smoke:android": "node ./scripts/smoke-test.js --platform android",
+    "smoke:ios": "node ./scripts/smoke-test.js --platform ios",
+    "smoke:all": "node ./scripts/smoke-test.js --platform android --platform ios",
+    "smoke:firebasex": "node ./scripts/smoke-test.js --platform android --with-firebasex",
+    "smoke:all:latest-cli": "node ./scripts/smoke-test.js --cordova-cli-package cordova@13.0.0 --platform android --platform ios",
+    "smoke:firebasex:latest-cli": "node ./scripts/smoke-test.js --cordova-cli-package cordova@13.0.0 --platform android --with-firebasex"
+  }
+}

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+    xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-synapse-qr-scanner"
+    version="1.0.0">
+
+    <name>Synapse QR Scanner</name>
+    <description>Production-ready Cordova QR and barcode scanner with Android Google Code Scanner / CameraX + ML Kit fallback and iOS AVFoundation.</description>
+    <license>Apache License 2.0</license>
+    <author>Synapse (https://synapse.es)</author>
+    <keywords>cordova,barcode,qr,scanner,camerax,mlkit,avfoundation</keywords>
+
+    <engines>
+        <engine name="cordova" version=">=12.0.0" />
+        <engine name="cordova-android" version=">=14.0.0" />
+        <engine name="cordova-ios" version=">=8.0.0" />
+    </engines>
+
+    <preference name="CAMERA_USAGE_DESCRIPTION" default="Scan QR codes and barcodes with the camera." />
+    <preference name="ANDROIDX_CAMERA_VERSION" default="1.6.0" />
+    <preference name="ANDROIDX_APPCOMPAT_VERSION" default="1.7.0" />
+    <preference name="MLKIT_BARCODE_SCANNING_VERSION" default="17.3.0" />
+    <preference name="PLAY_SERVICES_CODE_SCANNER_VERSION" default="16.1.0" />
+
+    <js-module src="www/nativecodescanner-core.js" name="NativeCodeScannerCore" />
+    <js-module src="www/nativecodescanner.js" name="NativeCodeScanner">
+        <clobbers target="window.NativeCodeScanner" />
+        <clobbers target="cordova.plugins.nativeCodeScanner" />
+    </js-module>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="NativeCodeScanner">
+                <param name="android-package" value="com.acme.cordova.nativecodescanner.NativeCodeScannerPlugin" />
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <uses-permission android:name="android.permission.CAMERA" />
+            <uses-permission android:name="android.permission.VIBRATE" />
+            <uses-feature android:name="android.hardware.camera.any" android:required="false" />
+            <uses-feature android:name="android.hardware.camera.flash" android:required="false" />
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity
+                android:name="com.acme.cordova.nativecodescanner.NativeCodeScannerActivity"
+                android:configChanges="keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
+                android:exported="false"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        </config-file>
+
+        <framework src="androidx.appcompat:appcompat:$ANDROIDX_APPCOMPAT_VERSION" />
+        <framework src="androidx.camera:camera-camera2:$ANDROIDX_CAMERA_VERSION" />
+        <framework src="androidx.camera:camera-lifecycle:$ANDROIDX_CAMERA_VERSION" />
+        <framework src="androidx.camera:camera-view:$ANDROIDX_CAMERA_VERSION" />
+        <framework src="androidx.concurrent:concurrent-futures:1.2.0" />
+        <framework src="com.google.guava:guava:33.2.1-android" />
+        <framework src="com.google.android.gms:play-services-code-scanner:$PLAY_SERVICES_CODE_SCANNER_VERSION" />
+        <framework src="com.google.mlkit:barcode-scanning:$MLKIT_BARCODE_SCANNING_VERSION" />
+
+        <source-file src="src/android/NativeCodeScannerPlugin.java" target-dir="app/src/main/java/com/acme/cordova/nativecodescanner" />
+        <source-file src="src/android/NativeCodeScannerActivity.java" target-dir="app/src/main/java/com/acme/cordova/nativecodescanner" />
+        <source-file src="src/android/NativeCodeScannerContract.java" target-dir="app/src/main/java/com/acme/cordova/nativecodescanner" />
+        <source-file src="src/android/NativeCodeScannerFormats.java" target-dir="app/src/main/java/com/acme/cordova/nativecodescanner" />
+        <source-file src="src/android/NativeCodeScannerOverlayView.java" target-dir="app/src/main/java/com/acme/cordova/nativecodescanner" />
+    </platform>
+
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="NativeCodeScanner">
+                <param name="ios-package" value="NativeCodeScanner" />
+            </feature>
+        </config-file>
+
+        <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+            <string>$CAMERA_USAGE_DESCRIPTION</string>
+        </config-file>
+
+        <framework src="AVFoundation.framework" />
+        <framework src="AudioToolbox.framework" />
+
+        <source-file src="src/ios/NativeCodeScanner.swift" />
+        <source-file src="src/ios/NativeCodeScannerBridge.m" />
+    </platform>
+</plugin>

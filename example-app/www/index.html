@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Native Code Scanner Demo</title>
+  <style>
+    :root {
+      color-scheme: light;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f4f6fb;
+      color: #0e1726;
+    }
+
+    body {
+      margin: 0;
+      padding: 24px;
+      background:
+        radial-gradient(circle at top left, rgba(49, 140, 231, 0.18), transparent 40%),
+        radial-gradient(circle at bottom right, rgba(15, 23, 42, 0.12), transparent 35%),
+        #f4f6fb;
+    }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 28px;
+      border-radius: 28px;
+      background: rgba(255, 255, 255, 0.88);
+      box-shadow: 0 18px 60px rgba(15, 23, 42, 0.12);
+      backdrop-filter: blur(20px);
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 2rem;
+      line-height: 1.1;
+    }
+
+    p {
+      margin: 0 0 16px;
+      line-height: 1.5;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 24px 0;
+    }
+
+    button {
+      border: 0;
+      border-radius: 999px;
+      background: #0f4c81;
+      color: #fff;
+      padding: 12px 18px;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    button.secondary {
+      background: #dbe7f5;
+      color: #0f2a4d;
+    }
+
+    pre {
+      overflow: auto;
+      padding: 16px;
+      border-radius: 20px;
+      background: #0f172a;
+      color: #dbeafe;
+      min-height: 180px;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Native Code Scanner</h1>
+    <p>Small Cordova demo for checking support, camera access, warm-up and live scanning in one screen.</p>
+
+    <div class="actions">
+      <button id="supportButton">Check device support</button>
+      <button id="permissionButton" class="secondary">Ask for camera access</button>
+      <button id="prewarmButton" class="secondary">Warm up scanner</button>
+      <button id="scanButton">Start scan</button>
+      <button id="cancelButton" class="secondary">Close active scan</button>
+    </div>
+
+    <pre id="output">Waiting for Cordova to finish loading…</pre>
+  </main>
+
+  <script src="cordova.js"></script>
+  <script src="js/index.js"></script>
+</body>
+</html>
